@@ -1,0 +1,35 @@
+.app-toolbar-filler {
+  flex: 1 1 auto;
+
+}
+.spacer {
+  flex: 1 1 auto;
+}
+md-toolbar{
+  position: relative;
+}
+md-sidenav-layout.m2app-dark {
+  background: black;
+}
+.app-content {
+  padding-top: 67px;
+  margin:0;
+  z-index:-1;
+}
+
+md-toolbar {
+  background-color: #ffffff;
+  /*
+    -webkit-box-shadow: 0 8px 6px -6px gray;
+     -moz-box-shadow: 0 8px 6px -6px gray;
+          box-shadow: 0 8px 6px -6px gray;
+*/
+
+box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);}
+.app-header{
+  position:fixed;
+  width:100%;
+  z-index:2;
+
+
+}

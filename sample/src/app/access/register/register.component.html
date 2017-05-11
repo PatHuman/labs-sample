@@ -1,0 +1,95 @@
+
+
+
+
+
+
+<md-card  class="no-shadow text-center" id="login-box">
+   <md-card-subtitle>
+      <h4>Labs Account</h4>
+   </md-card-subtitle>
+
+
+
+
+
+     <md-card-content class=" ">
+
+
+       <form [formGroup]="registerForm"  autocomplete="off">
+
+         <div class="clear"></div>
+
+          <md-input-container class="wrapper-xs"  style="width:30%" >
+		    <input mdInput  type="text" name="login" formControlName="givenName" placeholder="Name"  >
+
+		  </md-input-container>
+
+       	<!--
+          <md-input-container  style="width:30%" >
+		    <input mdInput  type="text" name="fullname" formControlName="firstname" placeholder="Firstname"  >
+		  </md-input-container>
+		   <div class="clear"></div>
+
+          <md-input-container  style="width:30%" >
+		    <input mdInput  type="text" name="fullname" formControlName="lastname" placeholder="Lastname"  >
+		  </md-input-container>
+		  -->
+       	  <div class="clear"></div>
+
+          <md-input-container class="wrapper-xs"  style="width:30%" >
+		    <input mdInput  type="text" name="login" formControlName="surname" placeholder="Surname"  >
+
+		  </md-input-container>
+		  <!--  <p *ngIf="registerForm.controls.username.errors?.taken">Taken error</p> -->
+
+
+       	  <div class="clear"></div>
+
+          <md-input-container  style="width:30%" >
+		    <input mdInput  type="text" name="login" formControlName="email" placeholder="Email"  >
+
+		  </md-input-container>
+		  <!-- <p *ngIf="registerForm.controls.email.errors?.required">required error</p> -->
+		     <!-- <p *ngIf="registerForm.controls.email.errors?.exists"> Exists error </p> -->
+
+
+
+         <div class="clear"></div>
+
+
+        <md-input-container style="width:30%" >
+		    <input mdInput  name="password" formControlName="password" type="password" placeholder="Password"  >
+		  </md-input-container>
+		 <!-- <p *ngIf="registerForm.controls.password.errors?.required">required error</p> -->
+
+		  <div class="clear"></div>
+
+        <md-input-container style="width:30%" >
+		    <input mdInput  name="passwordconf" formControlName="passconf" type="password" placeholder="Password Confirmation"  >
+		  </md-input-container>
+		  <p *ngIf="registerForm.controls.passconf.errors?.equalTo">Password match error</p>
+		  <p *ngIf="registerForm.controls.passconf.errors?.required">required error</p>
+
+
+
+
+
+
+
+
+          <div class="clear"></div>
+           </form>
+
+     </md-card-content>
+
+
+     <md-card-actions class="formButtons11">
+
+          <button class="m-l" md-button type="submit" (click)="saveForm()"  [disabled]="!registerForm.valid">Register</button>
+
+     </md-card-actions>
+
+
+
+</md-card>

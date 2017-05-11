@@ -1,0 +1,40 @@
+
+
+ <div class="">
+
+ <form [formGroup]="filterForm"  >
+  <md-input-container class="example-full-width">
+    <input mdInput formControlName="filter" name="filter" placeholder="Filter"  >
+  </md-input-container>
+</form>
+
+<div layout="column" id="playlist">
+  <md-list-item *ngFor="let link of playlist | filter:{title:filterForm.value.filter}">
+         <md-card class="m-t playlist-item">
+
+   <a class="" href  md-line (click)="selectVideo($event,link)" ><img md-card-image src="{{link.thumbnail_url_with_play_button}}">  </a>
+        
+  	
+  <md-card-content>{{link.title}}
+
+  </md-card-content>
+</md-card>
+
+   
+
+  </md-list-item>
+</div>
+
+</div>
+ 
+<!-- 
+      <md-card class="">
+
+  <md-card-header>
+    
+    <md-card-title>{{link.title}}</md-card-title>
+    <md-card-subtitle>testing</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="{{link.thumbnail_url}}">  	
+  <md-card-content>{{link.description}}</md-card-content>
+</md-card> -->

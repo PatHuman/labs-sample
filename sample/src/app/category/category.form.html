@@ -1,0 +1,216 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+<div class="arti-box1 pull-left">
+
+
+
+
+
+
+<!--
+  <div  *ngIf="showForm">
+  <category-form   [icons]="icons" [categories]="categories" (onClosed)="closeFormView()"></category-form>
+  </div>
+
+-->
+
+
+
+
+
+<div *ngIf="opened">
+
+
+<md-card  class="no-shadow" style="width:100%">
+   <md-card-subtitle>Category Form
+      <small class="pull-right">
+
+         <button color="primary"  class="no-shadow" (click)="closeForm()"   md-mini-fab><md-icon>close</md-icon></button>
+    </small>
+   </md-card-subtitle>
+
+
+
+
+
+
+
+     <md-card-content class="arti-box-content">
+
+
+
+       <form [formGroup]="catForm"  autocomplete="off">
+
+         <table class="table" style="width:100%">
+
+           <tr>
+              <td class="col-md-6" >
+                <div class="arti-box1 pull-left1">
+
+                   <div >
+
+                       <md-input-container class="example-full-width">
+                       <input mdInput formControlName="name" id="name"    type="text" name="title"  placeholder="Title">
+                       </md-input-container>
+                   </div>
+
+
+
+                   <div >
+
+                       <md-checkbox color="primary" formControlName="sub" id="hassub">
+                         <label  class="text-muted" for="hassub">Is Sub Category</label>
+                       </md-checkbox>
+                   </div>
+
+
+
+                   <div   *ngIf="catForm.value.sub">
+
+                     <md-input-container class="example-full-width">
+                     <input mdInput formControlName="parent" id="parent"    type="text" name="title"  placeholder="Category">
+                     </md-input-container>
+
+
+                   </div>
+
+                    <div class="suggestions pull-right" *ngIf="filteredList.length > 0">
+                           <ul *ngFor="let item of filteredList; let idx = index" >
+                               <li  [class.complete-selected]="idx == selectedIdx">
+                                   <a (click)="select(item,idx)">{{item}}</a>
+                               </li>
+                           </ul>
+                    </div>
+
+                    <label  class="text-muted" for="cat-icon">Icon</label>
+                   <div   id="cat-icon">
+
+                       <i class="material-icons"> {{catForm.value.icon}}</i>
+                        <span class="pull-right" >{{catForm.value.icon}}</span>
+                         <div class="clear"></div>
+                   </div>
+
+
+
+                   <label  class="text-muted" for="description">Description</label>
+                   <div   id="description">
+                       <quill-editor
+                               formControlName="description"
+                               [options]="editorConfig"
+                               (ready)="onEditorCreated($event)"
+                               (change)="onContentChanged($event)"></quill-editor>
+                   </div>
+
+
+
+                 </div>
+              </td>
+              <td class="col-md-6"  >
+
+                        <div  > <!-- | lfilter:{name:catForm.value.filter}  -->
+                              <div>
+
+
+                              <md-input-container class="example-full-width">
+                              <input mdInput formControlName="filter" id="filter"    type="text" name="title"  placeholder="Filter">
+                              </md-input-container>
+                              <div id="icon-select-box" class="w-full" style="width:100%"  >
+                                    <small *ngFor="let item of icons | filter:{name:catForm.value.filter} " >
+
+                                         <button md-button class="icons-select" (click)="setIcon(item.name)" md-mini-fab><i class="material-icons">{{item.name}}</i></button>
+                                    </small>
+                             </div>
+                           </div>
+                        </div>
+              </td>
+           </tr>
+         </table>
+
+
+
+
+          <div class="clear"></div>
+
+
+               <md-card-actions class="formButtons11">
+                    <button md-button type="submit" (click)="saveForm()"  [disabled]="!catForm.valid">SAVE</button>
+                    <button md-button (click)="clearForm()" >CANCEL</button>
+               </md-card-actions>
+
+
+            </form>
+
+     </md-card-content>
+
+</md-card>
+
+
+</div>
+
+
+
+
+
+
+<div class="clear"></div>
+
+
+</div>
+<!--
+<div class="arti-box pull-right">
+
+
+
+
+
+  <md-card class="grow-1" id="recent-commits">
+    <md-card-title>Recent Commits
+       <button (click)="openForm()" class="close-btn pull-right" md-mini-fab><md-icon>add</md-icon></button>
+    </md-card-title>
+    <md-card-content id="commits">
+
+
+          <md-nav-list >
+          <md-list-item class="itemList"  (click)="displayCat(cat)" *ngFor="let cat of categories">
+            <a md-line >
+            <md-icon>{{cat.icon}}</md-icon>
+            {{ cat.name }}</a>
+
+             <button class="action-menu-icon" md-icon-button (click)="editCat(cat)">
+              <md-icon> edit</md-icon>
+            </button>
+
+             <button md-icon-button class="action-menu-icon">
+              <i class="material-icons">delete_forever</i>
+            </button>
+
+          </md-list-item>
+    </md-nav-list>
+
+
+
+
+    </md-card-content>
+  </md-card>
+
+
+</div>
+
+
+-->
+
+<div class="clear"></div>
+</div>

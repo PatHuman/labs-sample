@@ -1,0 +1,120 @@
+/* For use in src/lib/core/theming/_palette.scss */
+
+@import '~@angular/material/core/theming/all-theme';
+ 
+@include mat-core();
+
+ 
+
+$primary:  mat-palette($mat-cyan, 800, 600, 500);
+$second: mat-palette($mat-teal, 500, 600);
+$accent:  mat-palette($mat-orange, A200, A100, A400);
+
+ 
+$candy-app-warn:    mat-palette($mat-red);
+
+ 
+$candy-app-theme: mat-light-theme($primary, $second,$accent);
+
+ 
+@include angular-material-theme($candy-app-theme);
+
+
+/*
+
+@import '../node_modules/@angular/material/core/theming/_all-theme';
+@include md-core();
+
+
+$mat-mc1: (
+    50 : #ffd966,
+    100 : #f1f6f7,
+    200 : #e8f0f1,
+    300 : #dee9eb,
+    400 : #7d4f66,
+    500 : #d0e0e3,
+    600 : #cbdce0,
+    700 : #6aa5da,
+    800 : #bed3d8,
+    900 : #b3cbd0,
+    A100 : #719e5c,
+    A200 : #ef4646,
+    A400 : #334c62,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #000000,
+    )
+);
+
+$mat-mc2: (
+    50 : #f7eee5,
+    100 : #38761d,
+    200 : #ddb994,
+    300 : #cf9d69,
+    400 : #c58848,
+    500 : #990000,
+    600 : #a22d67,
+    700 : #f1c232,
+    800 : #a45618,
+    900 : #96430f,
+    A100 : #44413f,
+    A200 : #7f4d33,
+    A400 : #ff9760,
+    A700 : #c6b5ac,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+ 
+
+ 
+ 
+$primary: mat-palette($mat-mc1);
+$accent:  mat-palette($mat-mc2, A200, A100, A900);
+$warn:  mat-palette($mat-mc1 50);
+$error:  mat-palette($mat-mc2 A500);
+$info:  mat-palette($mat-mc1 700);
+$success:  mat-palette($mat-mc2 100);
+
+$theme: mat-light-theme($primary, $accent,$warn,$error,$info,$success);
+@include angular-material-theme($theme);
+
+.m2app-dark {
+  $dark-primary: mat-palette($mat-mc1 A400);
+  $dark-accent:  mat-palette($mat-mc2 900, A200, 50, A100);
+  $dark-warn:    mat-palette($mat-mc2 600);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+  @include angular-material-theme($dark-theme);
+}
+
+
+ 
+ */

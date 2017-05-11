@@ -1,0 +1,83 @@
+
+
+<div layout="column">
+<div class="app-header" >
+<md-toolbar  >
+  Labs
+
+ <span class="app-toolbar-filler"></span>
+
+ <!-- <button class=""    md-mini-fab><md-icon>check</md-icon></button> -->
+
+
+<!-- <app-user></app-user> -->
+
+
+
+</md-toolbar>
+
+
+
+</div>
+
+  <div class="app-content" flex>
+
+<div class=" wrapper-xs m-t">
+<!--
+<div *ngIf="(user$ | async)" class="row text-center">
+ <h2>
+   Welcome, {{ ( user$ | async ).fullName }}.
+ </h2>
+
+ <ul class="nav nav-pills nav-stacked text-centered">
+   <li role="presentation" (click)="logout()"><a href="#">Logout</a></li>
+ </ul>
+</div>
+
+<sp-authport></sp-authport>
+
+-->
+     <labs-menus class="m-t"></labs-menus>
+
+      <router-outlet></router-outlet>
+<!--
+  <agenda class="m-t"></agenda>
+ <div class="clear"></div>
+  <vplayer ></vplayer>
+ <div class="clear"></div>
+
+ -->
+</div>
+
+
+
+
+
+
+<!--
+<vg-player (onPlayerReady)="onPlayerReady($event)">
+    <video vgMedia id="my-video" src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+</vg-player> -->
+
+</div>
+</div>
+
+
+<!--
+<md-card class="">
+  <md-card-header>
+      <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>Shiba Inu</md-card-title>
+    <md-card-subtitle>Dog Breed</md-card-subtitle>
+  </md-card-header>
+    <img md-card-image src="assets/img/examples/shiba2.jpg">
+  <md-card-content>
+
+<vplayer  ></vplayer>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+</md-card>
+ -->

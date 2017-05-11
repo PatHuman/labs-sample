@@ -1,0 +1,180 @@
+
+
+.editor-box .ql-editor{
+  min-height: 200px;
+}
+.arti-box{
+
+	width:49%;
+
+
+
+}
+
+.cmt-box{
+	padding: 5px;
+	margin-top: 5px;
+}
+.cmt-autor{
+	width:20%;
+	padding: 1px;
+	float: left;
+}
+.cmt-comment{
+
+	width:78%;
+	padding: 2px;
+	float: right;
+}
+.foot-note{
+
+	bottom: 0;
+}
+.edit-box {
+	border-bottom: 1px solid ;
+	border-color: #f1f1f1;
+}
+.top-line{
+	border-top: 1px solid ;
+	border-color: #f1f1f1;
+}
+
+.action-menu-icon{
+	color: gray;
+	display:none;
+
+}
+
+md-list-item:hover{
+
+	 background-color: #f1f1f1;
+
+}
+.itemList a {
+	text-decoration: none;
+}
+.itemList:hover .action-menu-icon{
+
+	 display:block;
+
+}
+
+
+
+.font-s{
+	font-size: 12px;
+}
+.font-m{
+	font-size: 14px;
+}
+md-tab-group{
+	z-index: 0;
+	position: relative;
+}
+
+.close-btn {
+
+	background-color: #f1f1f1;
+	box-shadow: none;
+}
+
+
+#inline-box .form-control{
+	width:100%;
+}
+#inline-box .form-group{
+	width:48%;
+
+	margin: 5px;
+}
+
+.no-shadow{
+	  box-shadow: none;
+
+
+}
+.arti-box-content{
+	width:100%;
+}
+
+
+#category-input{
+	width: 20%;
+	margin-top:9px;
+	margin-left: 15px;
+	position: absolute;
+	/* right: 20px; */
+}
+
+md-input{
+	width:100%;
+}
+md-input:focus{
+ 	color: gray;
+ }
+.pull-right{ float:right;}
+.pull-left{float: left;}
+.clear{clear: both;}
+.m-l{margin-left: 5px;}
+.m-r{margin-right: 5px;}
+.text-right{
+	text-align: right;
+}
+
+.formButtons{
+	text-align: right;
+}
+
+.icons-select{
+
+	background-color: #f1f1f1;
+	box-shadow: none;
+	margin:5px;
+}
+
+#icon-select-box{
+
+	height: 300px;
+	overflow: hidden;
+
+}
+#icon-select-box:hover{
+	overflow: auto;
+}
+
+/* home-made typeahead */
+
+.suggestions{
+	border:solid 1px #f1f1f1;
+	width:100%;
+	background: white;
+	position: relative;
+
+}
+
+.suggestions ul{
+	padding: 0px;
+	margin: 0px;
+}
+
+.container{
+	width:600px;
+	margin-left:10px;
+	margin-top:10px;
+}
+.suggestions ul li{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.suggestions ul li a{
+	padding:5px;
+	display: block;
+	text-decoration: none;
+	color:#7E7E7E;
+}
+
+.suggestions ul li a:hover{
+	background-color: #f1f1f1;
+}

@@ -1,0 +1,20 @@
+#
+# This file Makes the database connection available to the app via ENV. variable
+# The variable DB_CON is checked at startup to determine if this file should be 
+# sourced.
+# 
+#
+#
+# Creating the database & username
+# ---------------------------------
+# 1. yum install mysql mysql-server
+# 2. mysql_secure_installation      <-- Set mysql root password (needed)
+# 3. mysql -u root -p
+# 4. create database <dbname>
+# 5. grant all privileges on <dbname>.* to <username>@<host> identified by '<password>'
+#
+#
+#
+# MYSQL connection url
+# mysql://username:passowrd@host/dbname
+ 

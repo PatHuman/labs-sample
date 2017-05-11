@@ -1,0 +1,61 @@
+
+
+
+
+
+
+
+
+
+ <md-card class="no-shadow">
+
+
+
+
+
+   <md-card-subtitle>Comment Form
+   	<small class="pull-right">
+
+		<button class="no-shadow" (click)="closeForm()" md-mini-fab> <md-icon class="md-24">close</md-icon> </button>
+   	  	</small>
+
+
+
+   	  <div class="clear"></div>
+
+   </md-card-subtitle>
+
+<form [formGroup]="cmtForm" (ngSubmit)="onSubmit()" autoComplete="off">
+ <div  >
+   <md-card-content class="arti-box-content">
+
+
+
+
+  <div class="edit-box">
+      <quill-editor name="new_comment"
+              formControlName="comment"
+              [options]="editorConfig"
+              (ready)="onEditorCreated($event)"
+              (change)="onContentChanged($event)"></quill-editor>
+  </div>
+
+
+   </md-card-content>
+   </div>
+
+   <md-card-actions class="formButtons">
+        <button md-button type="submit" [disabled]="!cmtForm.valid">SAVE</button>
+        <button type="reset" md-button>CANCEL</button>
+   </md-card-actions>
+
+
+</form>
+</md-card>
+
+
+
+
+
+
+<div class="clear"></div>

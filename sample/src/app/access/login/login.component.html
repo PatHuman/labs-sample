@@ -1,0 +1,57 @@
+
+
+
+
+<md-card  class="no-shadow text-center " id="login-box">
+   <md-card-subtitle>
+      <h4>Labs Login</h4>
+   </md-card-subtitle>
+
+
+
+
+
+     <md-card-content class=" ">
+
+
+       <form [formGroup]="loginForm"  autocomplete="off">
+
+
+
+
+
+          <md-input-container  style="width:30%" >
+		    <input mdInput  type="text" name="login" formControlName="login" placeholder="Email"  >
+		  </md-input-container>
+
+
+         <div class="clear"></div>
+
+
+        <md-input-container style="width:30%" >
+		    <input mdInput  name="password" formControlName="password" type="password" placeholder="Password"  >
+		  </md-input-container>
+
+
+
+
+
+
+
+
+
+          <div class="clear"></div>
+           </form>
+
+     </md-card-content>
+
+
+     <md-card-actions class="formButtons11">
+    <!--  <a class="m-r">Forgot Password</a> -->
+          <button class="m-l" md-button type="submit" (click)="sendForm()"  [disabled]="!loginForm.valid">LOGIN</button>
+
+     </md-card-actions>
+
+
+
+</md-card>

@@ -1,0 +1,283 @@
+
+
+<div class="arti-box pull-left">
+ <md-card>
+   <md-card-subtitle>Article Form
+   	<small class="pull-right"> 
+   	  	<a href ><md-icon>close</md-icon></a></small>
+   </md-card-subtitle>
+ 
+   <md-card-content class="arti-box-content">
+
+      <div class="app-input-section">
+     	 <md-input placeholder="Title"></md-input>
+
+     	 	 
+		    <md-select placeholder="Category" [(ngModel)]="currentDrink"  id="category-input"  
+		      #drinkControl="ngModel">
+		      <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+		        {{ drink.viewValue }}
+		      </md-option>
+		    </md-select>	
+		    
+ 		
+    	</div>
+           
+<quill-editor [(ngModel)]="editorContent"
+              [config]="editorConfig"
+              (ready)="onEditorCreated($event)"
+              (change)="onContentChanged($event)"></quill-editor>
+   </md-card-content>
+
+   <md-card-actions>
+        <button md-button>SAVE</button>
+        <button md-button>CANCEL</button>
+   </md-card-actions>
+</md-card>
+
+</div>
+
+
+
+<div class="arti-box pull-right">
+	
+
+	 <md-card>
+	 <md-card-title>Card with title</md-card-title>  
+   <md-card-subtitle>Subtitle first</md-card-subtitle>
+    
+   <md-card-content>
+        <p>This is supporting text.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
+   </md-card-content>
+   <md-card-actions>
+         date
+   </md-card-actions>
+</md-card>
+
+</div>
+
+
+  <div class="clear"></div>
+
+
+<div>
+ <button md-button>FLAT</button>
+ <button disabled md-button>FLAT</button>
+ </div> 
+
+ <button md-icon-button>FLAT</button>
+      <button md-raised-button md-tooltip="This is a tooltip!">RAISED</button>
+
+<!-- or use with formControl  
+<quill-editor class="form-control"
+              [formControl]="editorContent"
+              [config]="editorConfig"
+              (ready)="onEditorCreated($event)"
+              (change)="onContentChanged($event)"></quill-editor>
+
+             -->
+
+        <md-list>
+   <h3 md-subheader>Folders</h3>
+   <md-list-item *ngFor="let folder of folders" ng-href="/">
+
+      <md-icon md-list-avatar>folder</md-icon>
+      <h4 md-line>{{folder.name}}</h4> 
+      <p md-line class="demo-2"> {{folder.updated |date}} </p>
+   </md-list-item>
+   <md-divider></md-divider>
+   <h3 md-subheader>Notes</h3>
+   <md-list-item *ngFor="let note of notes">
+      <md-icon md-list-avatar>note</md-icon>
+      <h4 md-line>{{note.name}}</h4>
+      <p md-line class="demo-2"> {{note.updated |date}} </p>
+   </md-list-item>
+</md-list>
+
+<br>
+
+<md-grid-list cols="4" rowHeight="100px">
+  <md-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
+  [style.background]="tile.color">
+    {{tile.text}}
+  </md-grid-tile>
+</md-grid-list>
+
+
+<br>
+<br>
+
+
+<!-- 
+
+	 <md-card>
+   <md-card-subtitle>Subtitle first</md-card-subtitle>
+   <md-card-title>Card with title</md-card-title>   
+   <md-card-content>
+        <p>This is supporting text.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
+   </md-card-content>
+   <md-card-actions>
+        <button md-button>LIKE</button>
+        <button md-button>SHARE</button>
+   </md-card-actions>
+</md-card>
+-->
+
+
+
+
+<!-- app.component.html -->
+
+ <!--
+<input type="file"
+       ngFileSelect
+       [options]="options"
+       (onUpload)="handleUpload($event)"
+       (beforeUpload)="beforeUpload($event)">
+
+ 
+<style>
+  .file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+</style>
+<div ngFileDrop
+     [options]="options"
+     (onUpload)="handleUpload($event)"
+     [ngClass]="{'file-over': hasBaseDropZoneOver}"
+     (onFileOver)="fileOverBase($event)"
+     (beforeUpload)="beforeUpload($event)">
+</div>
+
+<div>
+Response: {{ uploadFile | json }}
+</div>
+
+ 
+-->
+
+
+
+
+<!--
+<style>
+    .my-drop-zone { border: dotted 3px lightgray; }
+    .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+    .another-file-over-class { border: dotted 3px green; }
+
+    html, body { height: 100%; }
+</style>
+
+<div class="container">
+
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href>Angular2 File Upload</a>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <h3>Select files</h3>
+
+            <div ng2FileDrop
+                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)"
+                 [uploader]="uploader"
+                 class="well my-drop-zone">
+                Base drop zone
+            </div>
+
+            <div ng2FileDrop
+                 [ngClass]="{'another-file-over-class': hasAnotherDropZoneOver}"
+                 (fileOver)="fileOverAnother($event)"
+                 [uploader]="uploader"
+                 class="well my-drop-zone">
+                Another drop zone
+            </div>
+
+            Multiple
+            <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
+
+            Single
+            <input type="file" ng2FileSelect [uploader]="uploader" />
+        </div>
+
+        <div class="col-md-9" style="margin-bottom: 40px">
+
+            <h3>Upload queue</h3>
+            <p>Queue length: {{ uploader?.queue?.length }}</p>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th width="50%">Name</th>
+                    <th>Size</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of uploader.queue">
+                    <td><strong>{{ item?.file?.name }}</strong></td>
+                    <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                    <td *ngIf="uploader.isHTML5">
+                        <div class="progress" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                        <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                    </td>
+                    <td nowrap>
+                        <button type="button" class="btn btn-success btn-xs"
+                                (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                            <span class="glyphicon glyphicon-upload"></span> Upload
+                        </button>
+                        <button type="button" class="btn btn-warning btn-xs"
+                                (click)="item.cancel()" [disabled]="!item.isUploading">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger btn-xs"
+                                (click)="item.remove()">
+                            <span class="glyphicon glyphicon-trash"></span> Remove
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <div>
+                    Queue progress:
+                    <div class="progress" style="">
+                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success btn-s"
+                        (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                </button>
+                <button type="button" class="btn btn-warning btn-s"
+                        (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                </button>
+                <button type="button" class="btn btn-danger btn-s"
+                        (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+-->

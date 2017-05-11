@@ -1,0 +1,33 @@
+
+
+<div class="col-md-9 " *ngIf="user">
+ <button    class="pull-right "  md-button [mdMenuTriggerFor]="menu" id="user-dropdown-toggler">
+  Hey {{  user.givenName }}
+<md-icon>keyboard_arrow_down</md-icon>
+</button>
+<md-menu #menu="mdMenu" yPosition="above" [overlapTrigger]="false">
+<button md-menu-item> Refresh</button>
+<button md-menu-item> Settings</button>
+<button md-menu-item> Help</button>
+<button md-menu-item disabled> Sign Out</button>
+</md-menu>
+</div>
+<button  *ngIf="user"  md-mini-fab (click)="logout()" ><md-icon>lock_outline</md-icon></button>
+<button *ngIf="!user" routerLink="/login" md-mini-fab><md-icon>power_settings_new</md-icon></button>
+
+<!--
+<div class="col-md-2 " *ngIf="(user | async)">
+ <button    class="pull-right "  md-button [mdMenuTriggerFor]="menu" id="user-dropdown-toggler">
+  Hey {{ ( user | async ).givenName }}
+<md-icon>keyboard_arrow_down</md-icon>
+</button>
+<md-menu #menu="mdMenu" yPosition="above" [overlapTrigger]="false">
+<button md-menu-item> Refresh</button>
+<button md-menu-item> Settings</button>
+<button md-menu-item> Help</button>
+<button md-menu-item disabled> Sign Out</button>
+</md-menu>
+</div>
+<button  *ngIf="(user | async)"  md-mini-fab (click)="logout()" ><md-icon>lock_outline</md-icon></button>
+<button *ngIf="!(user | async)" routerLink="/login" md-mini-fab><md-icon>power_settings_new</md-icon></button>
+ -->

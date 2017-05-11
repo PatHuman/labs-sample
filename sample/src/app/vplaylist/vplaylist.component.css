@@ -1,0 +1,17 @@
+
+.clickable:hover{
+	cursor:hand;
+}
+
+#playlist{
+	height: 500px;
+	overflow: hidden;
+
+}
+#playlist:hover{
+	overflow: auto;
+}
+
+ #playlist.playlist-item :hover{
+	cursor:hand;
+}

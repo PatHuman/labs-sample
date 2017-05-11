@@ -1,0 +1,234 @@
+
+
+
+<div>
+
+    <small class="pull-right">
+
+      <button  (click)="openArtiForm()"      class="close-btn btn btn-xs  m-r  "> <i class="fa fa-plus"></i> Article  </button>
+      <button (click)="openCatFrom()"    class="close-btn btn btn-xs m-r "> <i class="fa fa-plus"></i> categories  </button>
+      <!-- <button class="close-btn" md-mini-fab> <md-icon class="md-24">add</md-icon> </button> -->
+    </small>
+    <div class="clear"></div>
+</div>
+
+ <div class="clear"></div>
+
+<div class="arti-box1 col-md-8 pull-left">
+
+
+
+    <md-card  class="no-shadow" id="category-view" *ngIf="currentCat.name">
+
+        <md-card-title >{{currentCat.name}}
+        <span md-mini-fab class="pull-right"> <i class="material-icons"> {{currentCat.icon}}</i></span>
+        </md-card-title>
+
+       <md-card-subtitle >
+        <span *ngIf="currentCat.name">Category</span>
+        <span *ngIf="currentCat.sub">{{currentCat.parent}}</span>
+       </md-card-subtitle>
+
+       <md-card-content [innerHTML]="currentCat.description">
+
+       </md-card-content>
+
+       <md-card-footer>
+        <span class="text-muted pull-left m-l"> {{currentCat.created | date}}</span>
+        <span class="text-muted pull-right m-r" > {{currentCat.owner}}</span>
+       <div class="clear"></div>
+
+       </md-card-footer>
+
+
+
+    </md-card>
+
+
+
+  <div class="clear"></div>
+
+  <category-form   [opened]="showCatForm" (onCatFormClose) ="closeCatFrom()"  ></category-form>
+
+<div *ngIf="formOpened">
+ <article-form (onClosed)="closedForm()" [edit]="editableArti" [categories]="categories" [categoryNames]="categoryNames"></article-form>
+</div>
+
+   <md-card class="no-shadow" *ngIf="!artiUpdateMode">
+   <md-card-title>{{currentArticle.title}}</md-card-title>
+   <md-card-subtitle>{{currentArticle.category}}</md-card-subtitle>
+
+   <md-card-content [innerHTML]="currentArticle.content">
+
+   </md-card-content>
+   <md-card-actions class="top-line" *ngIf="currentArticle.content">
+        <button md-button><i class="material-icons"> thumb_up</i></button>
+        <button md-button><i class="material-icons"> share</i></button>
+        <button md-button (click)="commentArti()" ><i class="material-icons"> insert_comment</i></button>
+   </md-card-actions>
+   <!-- <md-card-footer class="text-right"> {{currentArticle.created | date }}</md-card-footer> -->
+</md-card>
+
+<cmt-form *ngIf="mainViews.forms.cmt" [entity]="currentArticle" (onNewCmt)="refreshCmts($event)" (onCmtClosed)="closeCmtForm()"></cmt-form>
+
+ <cmt-list *ngIf="currentArticle.title" [comments]="comments"></cmt-list>
+
+</div>
+
+<div class="arti-box1 col-md-4 pull-right">
+
+
+<!--
+  <span class="pull-left m-r"> <i class="material-icons"> insert_comment</i></span>
+ -->
+
+
+<md-tab-group >
+
+
+  <md-tab>
+    <template md-tab-label>News</template>
+
+
+  <md-card class="" id="recent-commits">
+    <md-card-title>
+
+
+      <!--
+            <md-input   id="title"  #filter (keyup)="0"  type="text" name="title" class="form-control" placeholder="Filter"></md-input>
+         -->
+
+    </md-card-title>
+    <md-card-content id="commits">
+    <!--
+      <md-list>
+        <md-list-item *ngFor="let arti of articles">
+          <md-icon>file</md-icon>
+          <h3 md-line> {{arti.title}}  </h3>
+          <p md-line>
+            <span class="text-muted">{{arti.category}} </span>
+            <span class="detail-message"> ablablabla </span>
+          </p>
+        </md-list-item>
+      </md-list>
+      -->
+        <md-nav-list >
+          <md-list-item class="itemList" (click)="displayArticle(arti) "   *ngFor="let arti of articles ">
+            <a md-line  >
+             <h5>{{arti.title}}  </h5>
+
+            </a>
+
+
+                <span   class="pull-right  font-m" > {{arti.category}} </span>
+
+
+
+
+            <p md-line class="clear " > </p>
+
+
+
+          </md-list-item>
+    </md-nav-list>
+    </md-card-content>
+  </md-card>
+
+
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>My Articles</template>
+
+
+
+  <md-card class="" id="recent-commits">
+    <md-card-title>   </md-card-title>
+    <md-card-content id="commits">
+
+        <md-nav-list >
+          <md-list-item class="itemList"    *ngFor="let arti of articles  ">
+            <a md-line (click)="displayArticle(arti)"  > {{arti.title}}    </a>
+
+               <button class="action-menu-icon" md-icon-button (click)="editArticle(arti)">
+              <md-icon> publish</md-icon>
+            </button>
+
+             <button class="action-menu-icon" md-icon-button >
+              <md-icon> edit</md-icon>
+            </button>
+
+             <button md-icon-button class="action-menu-icon">
+              <i class="material-icons">delete_forever</i>
+            </button>
+
+
+            <p md-line class="clear " > </p>
+
+
+
+          </md-list-item>
+    </md-nav-list>
+    </md-card-content>
+  </md-card>
+
+  </md-tab>
+
+  <md-tab>
+    <template md-tab-label>categories</template>
+
+
+
+  <md-card class="" id="recent-commits">
+    <md-card-title>   </md-card-title>
+    <md-card-content id="commits">
+
+        <md-nav-list >
+          <md-list-item class="itemList"    *ngFor="let cat of categories  ">
+            <a md-line (click)="displayCat(cat)"  > {{cat.name}}    </a>
+
+               <button class="action-menu-icon" md-icon-button (click)="editCat(cat)">
+              <md-icon> publish</md-icon>
+            </button>
+
+             <button class="action-menu-icon" md-icon-button (click)="editCat(cat)">
+              <md-icon> edit</md-icon>
+            </button>
+
+             <button md-icon-button class="action-menu-icon">
+              <i class="material-icons">delete_forever</i>
+            </button>
+
+
+            <p md-line class="clear " > </p>
+
+
+
+          </md-list-item>
+    </md-nav-list>
+    </md-card-content>
+  </md-card>
+
+  </md-tab>
+
+
+</md-tab-group>
+
+<!--
+   <md-card>
+   <md-card-title>Card with title</md-card-title>
+   <md-card-subtitle>Subtitle first</md-card-subtitle>
+
+   <md-card-content>
+        <p>This is supporting text.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
+   </md-card-content>
+   <md-card-actions>
+        <button md-button>LIKE</button>
+        <button md-button>SHARE</button>
+   </md-card-actions>
+   <md-card-footer> footer</md-card-footer>
+</md-card>
+-->
+
+</div>

@@ -1,0 +1,56 @@
+
+
+    <div class="cmt-box" id="commits">
+ 
+
+          <md-list-item class="itemList"  *ngFor="let cmt of comments  ">
+
+
+            	<div md-line >
+            		<div class="cmt-autor">
+            			<div>{{cmt.owner}}</div>
+            			<small class="foot-note tex-muted">{{cmt.created | date}}</small>
+            		</div>
+               	 	<div   class="cmt-comment font-m" [innerHTML]="cmt.comment" >  </div>
+                </div>
+
+
+
+            <p md-line class="clear" > </p>
+
+
+
+          </md-list-item>
+
+    </div>
+
+
+
+
+
+<!--
+
+  <md-card class="grow-1" id="recent-commits">
+    <md-card-title>  </md-card-title>
+    <md-card-content id="commits">
+
+        <md-nav-list >
+          <md-list-item class="itemList"    *ngFor="let cmt of comments  ">
+
+
+            	<div md-line>
+            		<div class="grow-1">From & date </div>
+               	 	<div   class="grow-2" [innerHTML]="arti.content"> </div>
+                </div>
+
+
+
+            <p md-line class="clear " > </p>
+
+
+
+          </md-list-item>
+    </md-nav-list>
+    </md-card-content>
+  </md-card>
+ -->

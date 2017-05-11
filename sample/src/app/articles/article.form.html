@@ -1,0 +1,100 @@
+
+
+
+
+
+
+
+
+
+ <md-card class="no-shadow">
+
+
+
+
+
+   <md-card-subtitle>Article Form
+   	<small class="pull-right">
+
+		<button class="no-shadow" (click)="closeForm()" md-mini-fab> <md-icon class="md-24">close</md-icon> </button>
+   	  	</small>
+
+   	  <div class="clear"></div>
+
+   </md-card-subtitle>
+
+<form [formGroup]="artiForm"   (ngSubmit)="onSubmit()" autoComplete="off">
+ <div  >
+   <md-card-content class="arti-box-content">
+
+      <div class="app-input-section" id="inline-box">
+
+
+
+		    <div class=" form-group pull-left">
+
+            <md-input-container class="example-full-width">
+            <input mdInput formControlName="title" id="title"    type="text" name="title"  placeholder="Title">
+            </md-input-container>
+		  </div>
+
+     	 	<div class="form-group pull-right ">
+
+            <md-select  class="input-group" style="width:90%" formControlName="categoryid" name="category" placeholder="Category"   required>
+            <md-option *ngFor="let cat of categories" (onSelect)="setCategory(cat)" [value]="cat._id">
+              {{ cat.name }}
+            </md-option>
+          </md-select>
+          <!--
+			     <div class="input-field col s12">
+	                 <md-input placeholder="Category" id="country"  type="text"  formControlName="category" (keyup)=filter($event)    ></md-input>
+
+
+
+	            </div>
+
+	                 <div class="suggestions pull-right" *ngIf="filteredList.length > 0" >
+	                <ul *ngFor="let item of filteredList; let idx = index" >
+	                    <li   [class.complete-selected]="idx == selectedIdx">
+	                        <a   (click)="select(item,idx)">{{item}}</a>
+	                    </li>
+	                </ul>
+	            </div>
+              -->
+		    </div>
+
+
+ 		<div class="clear"></div>
+    	</div>
+
+
+  <div   class="editor-box" >
+      <quill-editor
+
+              id="editor"
+              name="editor"
+              formControlName="content"
+              [options]="editorConfig"
+              (ready)="onEditorCreated($event)"
+              (change)="onContentChanged($event)"></quill-editor>
+  </div>
+
+
+   </md-card-content>
+   </div>
+
+   <md-card-actions class="formButtons">
+        <button md-button type="submit" [disabled]="!artiForm.valid">SAVE</button>
+        <button md-button (click)="resetForm()" >CANCEL</button>
+   </md-card-actions>
+
+
+</form>
+</md-card>
+
+
+
+
+
+
+<div class="clear"></div>

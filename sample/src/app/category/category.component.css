@@ -1,0 +1,52 @@
+
+.clear{
+  clear:both;
+}
+ #icon-select-box{
+
+   width: 100%;
+ }
+
+.text-muted {
+  color: #a8a8a8 !important;
+}
+
+#hassub .md-checkbox-background {
+
+	background-color: black;
+	color: white;
+
+}
+
+.left-box{
+
+	float:left;
+
+}
+.right-box{
+	float: right;
+}
+
+
+
+
+.action-menu-icon{
+	color: gray;
+	display:none;
+
+}
+
+md-list-item:hover{
+
+	 background-color: #f1f1f1;
+
+}
+.itemList a {
+	text-decoration: none;
+}
+.itemList:hover .action-menu-icon{
+
+	 display:block;
+
+
+}

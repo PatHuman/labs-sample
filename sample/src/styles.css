@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+/* @import '~@angular/material/core/theming/prebuilt/indigo-pink.css'; */
+@import "~https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
+@import "~http://cloud.github.com/downloads/lafeber/world-flags-sprite/flags16.css";
+@import "~http://cloud.github.com/downloads/lafeber/world-flags-sprite/flags32.css";
+ 
+ 
+ body {
+  margin: 0;
+   
+}
+a{
+	text-decoration: none;
+	color:black;
+}
+.no-shadow{
+    box-shadow: none;  
+
+
+}
+.clear{
+	clear:both;
+}
