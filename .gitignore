@@ -7,6 +7,7 @@
 # dependencies
 sample/node_modules
 backend/node_modules
+backend/.tmp/
 
 # IDEs and editors
 /.idea
