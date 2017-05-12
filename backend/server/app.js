@@ -12,7 +12,7 @@ import http from 'http';
 import path from 'path';
 import stormpath from 'express-stormpath';
 var datasource = require('./components/db/db.service.js');
-var register = require('./components/user/registration.js');
+//var register = require('./components/user/registration.js');
 var cors = require('cors');
 
 // Connect to MongoDB

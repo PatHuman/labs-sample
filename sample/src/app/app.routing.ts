@@ -7,7 +7,7 @@ import {ArticlesComponent} from './articles/articles.component';
 const appRoutes: Routes = [
 	  {
         path: '',
-        redirectTo: '/home',
+        redirectTo: 'home',
         pathMatch: 'full'
       },
       {path : 'home', component : HomeComponent },

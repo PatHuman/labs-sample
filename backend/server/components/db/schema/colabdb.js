@@ -5,7 +5,7 @@ var orm = require("orm");
 
 
 
-   		db.define("gapeli_users", {
+   		db.define("labs_users", {
 
 
 			sid			    : String,    //full-remoteid
